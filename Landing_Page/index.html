@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedChain - Hospitals in Your City</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div id="user-info">
+                    <a href="#" id="user-registration">User Registration</a>
+                    <a href="#" id="hospital-login">Hospital Login</a>
+                </div>
+                <div id="logged-in-user" style="display: none;">
+                    <span id="username-display"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hospital-list">
+            <h1>Hospitals in Your City</h1>
+
+            <!-- Hospital 1 -->
+            <div class="hospital-card">
+                <h2>City Hospital</h2>
+                <p>Location: Main Street, City Center</p>
+                <div class="hospital-options">
+                    <a href="#" class="open-modal" data-modal="modal1">View OPD Queue</a>
+                    <a href="#" class="open-modal" data-modal="modal2">View Bed Status</a>
+                    <a href="#" class="open-modal" data-modal="modal3">Book a Bed</a>
+                    <a href="#" class="open-modal" data-modal="modal4">Schedule OPD Appointment</a>
+                </div>
+            </div>
+
+            <!-- Hospital 2 -->
+            <div class="hospital-card">
+                <h2>Community Health Center</h2>
+                <p>Location: Park Avenue, Eastside</p>
+                <div class="hospital-options">
+                    <a href="#" class="open-modal" data-modal="modal1">View OPD Queue</a>
+                    <a href="#" class="open-modal" data-modal="modal2">View Bed Status</a>
+                    <a href="#" class="open-modal" data-modal="modal3">Book a Bed</a>
+                    <a href="#" class="open-modal" data-modal="modal4">Schedule OPD Appointment</a>
+                </div>
+            </div>
+
+            <!-- Hospital 3 -->
+            <div class="hospital-card">
+                <h2>General Hospital</h2>
+                <p>Location: Elm Street, Westside</p>
+                <div class="hospital-options">
+                    <a href="#" class="open-modal" data-modal="modal1">View OPD Queue</a>
+                    <a href="#" class="open-modal" data-modal="modal2">View Bed Status</a>
+                    <a href="#" class="open-modal" data-modal="modal3">Book a Bed</a>
+                    <a href="#" class="open-modal" data-modal="modal4">Schedule OPD Appointment</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MedChain. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Pop-up Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>OPD Queue</h2>
+            <p>Select the department to view available time slots:</p>
+            <form id="opd-department-form">
+                <label for="opd-department">Select Department:</label>
+                <select id="opd-department" name="opd-department">
+                    <option value="general">General OPD</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <option value="cardiology">Cardiology</option>
+                </select>
+                <button type="button" onclick="showTimeSlots()">View Time Slots</button>
+            </form>
+
+            <div id="opd-time-slots" style="display: none;">
+                <h3>Available Time Slots:</h3>
+                <ul>
+                    <li>9:00 AM - 10:00 AM</li>
+                    <li>10:00 AM - 11:00 AM</li>
+                    <li>11:00 AM - 12:00 PM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bed Status</h2>
+            <p>Current bed availability for the selected hospital:</p>
+            <ul>
+                <li>General: 10 beds available</li>
+                <li>Emergency: 2 beds available</li>
+                <li>ICU: 1 bed available</li>
+                <li>Private: 5 beds available</li>
+                <li>Surgery: 3 beds available</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book a Bed</h2>
+            <form>
+                <label for="bed-type-book">Select Bed Type:</label>
+                <select id="bed-type-book" name="bed-type-book">
+                    <option value="general">General</option>
+                    <option value="emergency">Emergency</option>
+                    <option value="icu">ICU</option>
+                    <option value="private">Private</option>
+                    <option value="surgery">Surgery</option>
+                </select>
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date">
+                <button type="button" onclick="openLoginForm('bed')">Book Bed</button>
+            </form>
+            <button class="emergency-ambulance-btn" onclick="openLoginForm('ambulance')">Book Emergency Ambulance</button>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Schedule OPD Appointment</h2>
+            <form>
+                <label for="opd-type-book">Select OPD Department:</label>
+                <select id="opd-type-book" name="opd-type-book">
+                    <option value="general">General OPD</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <option value="cardiology">Cardiology</option>
+                </select>
+                <label for="date-opd">Select Date:</label>
+                <input type="date" id="date-opd" name="date-opd">
+                <label for="time-slot-opd">Select Time Slot:</label>
+                <select id="time-slot-opd" name="time-slot-opd">
+                    <option value="9:00-10:00">9:00 AM - 10:00 AM</option>
+                    <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                    <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                </select>
+                <button type="button" onclick="openLoginForm('opd')">Schedule Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Form Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" onclick="loginUser()">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
