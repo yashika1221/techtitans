@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Medical History</title>
+    <link rel="stylesheet" href="history.css">
+
+</head>
+<body>
+    <h1>Patient Medical History</h1>
+    <p>For the ease of your medical treatment kindly fill in your correct details before the visit.</p>
+    <div class="form">
+        <form action="/submit_registration" method="post">
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+    
+            <label for="blood type">Blood type:</label>
+            <select id="blood type" name="blood type" required>
+                <option value="" disabled selected>Select your blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+            
+            <label for="surgeries">Past surgeries (if any):</label>
+            <input type="text" id="surgeries" name="surgeries" rows="2" required><br><br>
+    
+            <label for="allergies">Allergies(if any)</label>
+            <textarea type="text" id="allergues" name="allergis" rows="2"></textarea>
+    
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* styles.css */
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #748dcc;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Container for the Form */
+.form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+p {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Input and Select Styling */
+input[type="date"],
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color: #9ebae8;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* Submit Button Hover Effect */
+input[type="submit"]:hover {
+    background-color: #4940c9;
+}
+
+/* Additional Styling for Textarea */
+textarea {
+    resize: vertical;
+}
